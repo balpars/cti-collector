@@ -91,6 +91,14 @@ exec /opt/cti/cti.sh "$@"
 
 Keep `cti.env` private: `chmod 600 cti.env` (it holds your bot token / API key).
 
+## To Do
+
+Planned additional feeds (same passive, new-only, push-to-sink model):
+
+- [ ] **KEVs** — poll the [CISA Known Exploited Vulnerabilities catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) (`https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json`) and alert on newly added CVEs (dedupe on `cveID`). Card: CVE, vendor/product, name, due date, ransomware-use flag.
+- [ ] **Major vulns** — surface high-severity / widely-exploited CVEs beyond the KEV list (e.g. NVD CVE API filtered by CVSS ≥ 9.0, or the EPSS feed for high exploit-probability scores). Dedupe on `cveID`.
+- [ ] **News** — watch a few curated security-news RSS/Atom feeds and push new headlines (dedupe on item GUID/link). Keep it to a short, configurable source list to avoid noise.
+
 ## Notes
 
 - Consumes already-public disclosures. Keep usage to observing and protecting —
