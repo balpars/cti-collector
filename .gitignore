@@ -1,0 +1,5 @@
+# secrets and local state — never commit these
+cti.env
+.cti_seen
+*.cti_seen
+*.log
